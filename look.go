@@ -42,13 +42,13 @@ func search(fn string, key string, fold bool) {
 	var n int
 	st, _ := os.Stat(fn)
 	hi = st.Size()
-	var ba [1 << 12]byte
+	const bsz int64 = 1 << 12
+	var ba [bsz]byte
 	var buf []byte = ba[0:]
 
 	if fold {
 		key = strings.ToLower(key)
 	}
-	var lhd int64 = 1 << 12
 	var found int64
 	var match bool
 	for {
@@ -61,7 +61,7 @@ func search(fn string, key string, fold bool) {
 		}
 		br := bytes.NewBuffer(buf[:n])
 
-		if (hi - lo) < lhd {
+		if (hi - lo) < bsz {
 			//fmt.Println("linear")
 
 			n, err = f.ReadAt(buf, lo)
