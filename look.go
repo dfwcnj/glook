@@ -10,13 +10,12 @@ import (
 	"strings"
 )
 
-var fn = ""
-var key = ""
-
 func init() {
 }
 
 func main() {
+	var fn = ""
+	var key = ""
 	flag.StringVar(&fn, "fn", "/usr/share/dict/words", "name of sorted file to search")
 	flag.StringVar(&key, "key", "", "search key")
 	pfold := flag.Bool("fold", false, "fold case")
