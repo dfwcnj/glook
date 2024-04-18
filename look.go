@@ -14,9 +14,9 @@ func init() {
 }
 
 func main() {
-	var fn = ""
-	var key = ""
-	flag.StringVar(&fn, "fn", "/usr/share/dict/words", "name of sorted file to search")
+	var fn string
+	var key string
+	flag.StringVar(&fn, "file", "/usr/share/dict/words", "name of sorted file to search")
 	flag.StringVar(&key, "key", "", "search key")
 	pfold := flag.Bool("fold", false, "fold case")
 	flag.Parse()
