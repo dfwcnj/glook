@@ -3,14 +3,14 @@
 .PHONY:fmt vet build
 
 fmt:
-	go fmt look.go
+	go fmt
 
 vet: fmt
-	go vet look.go
+	go vet
 
 build: vet
-	go build look.go
+	go build
 
-clean: look
-	/bin/rm look
+clean:
+	go clean
 
